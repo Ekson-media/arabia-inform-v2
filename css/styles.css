@@ -1248,7 +1248,7 @@ p {
 .quote-author {
   font-size: 13px;
   font-weight: 600;
-  color: rgba(33, 152, 180, 0.8);
+  color: var(--intellectual-blue);
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
@@ -1464,7 +1464,7 @@ p {
 
 .quote-author {
   margin-top: 20px;
-  color: var(--gold);
+  color: var(--intellectual-blue);
   font-weight: 600;
   font-size: 15px;
 }
