@@ -1347,6 +1347,8 @@ p {
   transition: var(--transition);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-card::before {
@@ -1385,11 +1387,19 @@ p {
 
 .service-card h4 {
   margin-bottom: 12px;
+  height: 3em; /* Fixed height for ~2 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.5;
 }
 
 .service-card p {
   font-size: 15px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
+  flex-grow: 1;
 }
 
 .card-link {
@@ -1399,6 +1409,7 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  margin-top: auto;
 }
 
 .card-link:hover {
