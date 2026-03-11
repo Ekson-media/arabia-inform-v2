@@ -160,18 +160,31 @@ function initTabs() {
   const tabPanels = document.querySelectorAll('.tab-panel');
   if (!tabBtns.length) return;
 
+  const activateTab = (targetId) => {
+    // Remove active from all
+    tabBtns.forEach(b => b.classList.remove('active'));
+    tabPanels.forEach(p => p.classList.remove('active'));
+
+    // Add to target
+    const btn = document.querySelector(`.tab-btn[data-tab="${targetId}"]`);
+    const panel = document.getElementById(targetId);
+
+    if (btn) btn.classList.add('active');
+    if (panel) panel.classList.add('active');
+  };
+
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const target = btn.dataset.tab;
-
-      tabBtns.forEach(b => b.classList.remove('active'));
-      tabPanels.forEach(p => p.classList.remove('active'));
-
-      btn.classList.add('active');
-      const panel = document.getElementById(target);
-      if (panel) panel.classList.add('active');
+      activateTab(target);
     });
   });
+
+  // Handle URL hash on load
+  const hash = window.location.hash.replace('#', '');
+  if (hash) {
+    activateTab(hash);
+  }
 }
 
 /* --- Form Validation --- */
