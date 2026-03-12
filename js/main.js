@@ -184,6 +184,21 @@ function initTabs() {
   const hash = window.location.hash.replace('#', '');
   if (hash) {
     activateTab(hash);
+    
+    // Smooth scroll to the tab panel after a short delay to ensure visibility
+    setTimeout(() => {
+        const panel = document.getElementById(hash);
+        if (panel) {
+            const headerOffset = 240;
+            const elementPosition = panel.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    }, 150);
   }
 }
 
