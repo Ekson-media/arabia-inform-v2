@@ -173,6 +173,28 @@ function initTabs() {
     if (panel) panel.classList.add('active');
   };
 
+  const handleHashNavigation = () => {
+    const hash = window.location.hash.replace('#', '');
+    if (!hash) return;
+
+    activateTab(hash);
+
+    // Smooth scroll to the tab panel after a short delay to ensure visibility
+    setTimeout(() => {
+      const panel = document.getElementById(hash);
+      if (panel) {
+        const headerOffset = 240;
+        const elementPosition = panel.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 150);
+  };
+
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const target = btn.dataset.tab;
@@ -181,25 +203,10 @@ function initTabs() {
   });
 
   // Handle URL hash on load
-  const hash = window.location.hash.replace('#', '');
-  if (hash) {
-    activateTab(hash);
-    
-    // Smooth scroll to the tab panel after a short delay to ensure visibility
-    setTimeout(() => {
-        const panel = document.getElementById(hash);
-        if (panel) {
-            const headerOffset = 240;
-            const elementPosition = panel.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-            
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
-    }, 150);
-  }
+  handleHashNavigation();
+
+  // Handle hash changes for same-page navigation
+  window.addEventListener('hashchange', handleHashNavigation);
 }
 
 /* --- Form Validation --- */
