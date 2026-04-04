@@ -3218,7 +3218,7 @@ p {
     display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 0 24px 0; padding: 0;
   }
   .tabs-header .tab-btn, .tabs-nav .tab-btn { 
-    flex: 1 1 calc(45% - 8px); min-width: 140px; text-align: center; padding: 10px 16px; font-size: 14px; margin: 0; 
+    flex: 1 1 calc(30% - 8px); min-width: 100px; text-align: center; padding: 10px 10px; font-size: 13px; margin: 0; 
   }
   .section-dark .tabs-header .tab-btn.active { border: 1px solid var(--gold); }
   
