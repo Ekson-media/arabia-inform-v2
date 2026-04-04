@@ -3215,13 +3215,10 @@ p {
   
   /* 1. Tabs Header (Top Navigation) */
   .tabs-header, .tabs-nav {
-    display: flex; flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x mandatory; 
-    padding: 0 16px 8px; margin: 0 -16px 24px -16px; justify-content: flex-start; gap: 12px;
-    -webkit-overflow-scrolling: touch; scrollbar-width: none; scroll-behavior: smooth;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 0 24px 0; padding: 0;
   }
-  .tabs-header::-webkit-scrollbar, .tabs-nav::-webkit-scrollbar { display: none; }
   .tabs-header .tab-btn, .tabs-nav .tab-btn { 
-    flex: 0 0 auto; scroll-snap-align: center; min-width: max-content; padding: 10px 24px; font-size: 15px; text-align: center;
+    flex: 1 1 calc(45% - 8px); min-width: 140px; text-align: center; padding: 10px 16px; font-size: 14px; margin: 0; 
   }
   .section-dark .tabs-header .tab-btn.active { border: 1px solid var(--gold); }
   
