@@ -3215,24 +3215,15 @@ p {
   
   /* Tabs Header */
   .tabs-header {
-    display: flex; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 8px; margin-bottom: 24px; gap: 8px;
-    -webkit-overflow-scrolling: touch;
+    display: flex; flex-wrap: wrap; justify-content: center; margin-bottom: 24px; gap: 10px;
   }
-  .tabs-header::-webkit-scrollbar { height: 4px; }
-  .tabs-header::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
-  .tab-btn { flex-shrink: 0; }
+  .tab-btn { flex: 1 1 calc(40% - 10px); min-width: 120px; text-align: center; }
 
   /* Tabs Nav (Solutions page) — horizontal scrollable */
   .tabs-nav {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    justify-content: flex-start;
-    padding-bottom: 8px;
-    -webkit-overflow-scrolling: touch;
+    display: flex; flex-wrap: wrap; justify-content: center; margin-bottom: 24px; gap: 8px;
   }
-  .tabs-nav::-webkit-scrollbar { height: 4px; }
-  .tabs-nav::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
-  .tabs-nav .tab-btn { flex-shrink: 0; font-size: 13px; padding: 10px 18px; }
+  .tabs-nav .tab-btn { flex: 1 1 calc(33% - 8px); min-width: 100px; font-size: 13px; padding: 10px 10px; text-align: center; }
 
   /* Tab content inner — stack on mobile */
   .tab-content-inner { grid-template-columns: 1fr !important; gap: 32px; }
