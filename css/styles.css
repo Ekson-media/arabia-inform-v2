@@ -3451,7 +3451,7 @@ p {
   .quote-block { padding: 28px 24px; }
   .quote-text { font-size: 17px; }
 
-  /* --- Premium Footer Mobile Enhancement --- */
+  /* --- Fluid Premium Footer Mobile --- */
   .footer { 
     padding: 64px 0 0 !important; 
   }
@@ -3462,6 +3462,23 @@ p {
     gap: 40px 24px !important;
     text-align: left !important;
     padding-bottom: 48px !important;
+  }
+
+  /* SMALL MOBILE: Single Column centered stack */
+  @media (max-width: 500px) {
+    .footer-grid {
+      grid-template-columns: 1fr !important;
+      text-align: center !important;
+      gap: 32px !important;
+    }
+    .footer-title::after {
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+    }
+    .rtl .footer-title::after {
+      right: 50% !important;
+      transform: translateX(50%) !important;
+    }
   }
 
   .footer-brand {
@@ -3497,6 +3514,13 @@ p {
     text-align: center !important;
   }
 
+  /* Handle small screens for Solutions section */
+  @media (max-width: 500px) {
+    .footer-grid > div:nth-child(4) {
+      padding-top: 32px !important;
+    }
+  }
+
   .footer-title {
     margin-bottom: 20px !important;
     font-size: 12px !important;
@@ -3505,6 +3529,14 @@ p {
   .footer-title::after {
     left: 0 !important;
     transform: none !important;
+  }
+
+  /* Centered footer titles on small mobile */
+  @media (max-width: 500px) {
+    .footer-title::after {
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+    }
   }
 
   .footer-grid > div:nth-child(4) .footer-title::after {
@@ -3520,10 +3552,15 @@ p {
     left: auto !important;
     right: 0 !important;
   }
-  .rtl .footer-grid > div:nth-child(4) .footer-title::after {
-    left: auto !important;
-    right: 50% !important;
-    transform: translateX(50%) !important;
+  
+  @media (max-width: 500px) {
+    .rtl .footer-grid {
+      text-align: center !important;
+    }
+    .rtl .footer-title::after {
+      right: 50% !important;
+      transform: translateX(50%) !important;
+    }
   }
 
   .footer-bottom {
@@ -3538,6 +3575,7 @@ p {
     justify-content: center !important;
     column-gap: 20px !important;
   }
+
 
 
 
@@ -3631,8 +3669,9 @@ p {
   .tab-btn { padding: 8px 14px; font-size: 13px; }
 
   /* Footer tighter */
-  .footer { padding: 48px 0 0; }
-  .footer-bottom { padding: 16px 0; }
+  .footer { padding: 48px 0 0 !important; }
+  .footer-bottom { padding: 16px 0 !important; }
+
 
   /* Blog card body */
   .blog-card-body { padding: 20px; }
