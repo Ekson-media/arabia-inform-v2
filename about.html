@@ -148,51 +148,197 @@
         </div>
     </section>
 
-    <!-- Timeline -->
-    <section class="section" id="timeline">
+    <!-- Interactive Timeline -->
+    <section class="section section-light" id="timeline">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-label">29 Years of Growth</span>
+                <span class="section-label text-gold">29 Years of Growth</span>
                 <h2>Our Journey</h2>
+                <p>From Archiving Knowledge to AI-Powered Intelligence</p>
             </div>
-            <div class="timeline reveal">
-                <div class="timeline-track">
-                    <div class="timeline-item">
-                        <div class="timeline-year">1997</div>
-                        <div class="timeline-text">Company Founded — Vision to preserve Arabic knowledge</div>
+            
+            <div class="timeline-interactive-container reveal">
+                <!-- Timeline Nav (Horizontal) -->
+                <div class="timeline-nav-wrapper">
+                    <div class="timeline-connecting-line"></div>
+                    <div class="timeline-nav">
+                        <!-- 1997 -->
+                        <button class="timeline-node active" data-year="1997">
+                            <span class="node-year">1997</span>
+                            <div class="node-point"></div>
+                        </button>
+                        <!-- 1998 -->
+                        <button class="timeline-node" data-year="1998">
+                            <span class="node-year">1998</span>
+                            <div class="node-point"></div>
+                        </button>
+                        <!-- 2004 -->
+                        <button class="timeline-node" data-year="2004">
+                            <span class="node-year">2004</span>
+                            <div class="node-point"></div>
+                        </button>
+                        <!-- 2006 -->
+                        <button class="timeline-node" data-year="2006">
+                            <span class="node-year">2006</span>
+                            <div class="node-point"></div>
+                        </button>
+                        <!-- 2009 -->
+                        <button class="timeline-node" data-year="2009">
+                            <span class="node-year">2009</span>
+                            <div class="node-point"></div>
+                        </button>
+                        <!-- 2010s -->
+                        <button class="timeline-node" data-year="2010s">
+                            <span class="node-year">2010s</span>
+                            <div class="node-point"></div>
+                        </button>
+                        <!-- 2020+ -->
+                        <button class="timeline-node" data-year="2020p">
+                            <span class="node-year">2020+</span>
+                            <div class="node-point"></div>
+                        </button>
+                        <!-- 2024 -->
+                        <button class="timeline-node" data-year="2024">
+                            <span class="node-year">2024</span>
+                            <div class="node-point"></div>
+                        </button>
+                        <!-- 2026 -->
+                        <button class="timeline-node" data-year="2026">
+                            <span class="node-year">2026</span>
+                            <div class="node-point"></div>
+                        </button>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">1998</div>
-                        <div class="timeline-text">Operations Begin — First print media archive launched</div>
+                </div>
+
+                <!-- Timeline Content Display -->
+                <div class="timeline-content-display">
+                    <!-- 1997 Content -->
+                    <div class="timeline-panel active" id="panel-1997">
+                        <div class="panel-inner">
+                            <div class="panel-text">
+                                <h3>1997: Company Founded</h3>
+                                <p>Arabia Inform begins with a singular vision to capture, preserve, and provide intelligent access to the Arabic-speaking world's knowledge.</p>
+                            </div>
+                            <div class="panel-visual">
+                                <div class="visual-placeholder">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2004</div>
-                        <div class="timeline-text">Online Archive Begins — Web content monitoring starts</div>
+                    <!-- 1998 Content -->
+                    <div class="timeline-panel" id="panel-1998">
+                        <div class="panel-inner">
+                            <div class="panel-text">
+                                <h3>1998: Operations Begin</h3>
+                                <p>The first print media archive is successfully launched, establishing the foundation of daily continuous coverage without missing a single beat.</p>
+                            </div>
+                            <div class="panel-visual">
+                                <div class="visual-placeholder">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"></path><path d="M18 14h-8"></path><path d="M15 18h-5"></path><path d="M10 6h8v4h-8V6Z"></path></svg>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2006</div>
-                        <div class="timeline-text">Broadcast Archive — TV and radio monitoring begins</div>
+                    <!-- 2004 Content -->
+                    <div class="timeline-panel" id="panel-2004">
+                        <div class="panel-inner">
+                            <div class="panel-text">
+                                <h3>2004: Online Archive Begins</h3>
+                                <p>As digital media rapidly expands, Arabia Inform begins comprehensive web content monitoring to adapt to modern publishing landscapes.</p>
+                            </div>
+                            <div class="panel-visual">
+                                <div class="visual-placeholder">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2009</div>
-                        <div class="timeline-text">YouTube Integration — Video content added to archive</div>
+                    <!-- 2006 Content -->
+                    <div class="timeline-panel" id="panel-2006">
+                        <div class="panel-inner">
+                            <div class="panel-text">
+                                <h3>2006: Broadcast Archive</h3>
+                                <p>Integration of television and radio monitoring introduces real-time logging, analysis, and archiving of spoken Arabic words across channels.</p>
+                            </div>
+                            <div class="panel-visual">
+                                <div class="visual-placeholder">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6"></path><path d="M2 12v8a2 2 0 0 0 2 2h4"></path><path d="m11 14 3 3-3 3"></path></svg>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2010s</div>
-                        <div class="timeline-text">Academic Expansion — Research papers & dissertations</div>
+                    <!-- 2009 Content -->
+                    <div class="timeline-panel" id="panel-2009">
+                        <div class="panel-inner">
+                            <div class="panel-text">
+                                <h3>2009: YouTube Integration</h3>
+                                <p>Responding to the rise of independent media and user-generated content, video insights and YouTube archiving are formalized into the system.</p>
+                            </div>
+                            <div class="panel-visual">
+                                <div class="visual-placeholder">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2020+</div>
-                        <div class="timeline-text">AI Readiness — NLP datasets and API infrastructure</div>
+                    <!-- 2010s Content -->
+                    <div class="timeline-panel" id="panel-2010s">
+                        <div class="panel-inner">
+                            <div class="panel-text">
+                                <h3>2010s: Academic Expansion</h3>
+                                <p>Massive incorporation of research papers, dissertations, and intellectual history transforms the archive into an academic engine.</p>
+                            </div>
+                            <div class="panel-visual">
+                                <div class="visual-placeholder">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2024</div>
-                        <div class="timeline-text">3+ Billion Articles — Historic milestone reached</div>
+                    <!-- 2020+ Content -->
+                    <div class="timeline-panel" id="panel-2020p">
+                        <div class="panel-inner">
+                            <div class="panel-text">
+                                <h3>2020+: AI Readiness</h3>
+                                <p>Advanced NLP datasets and high-speed API infrastructure position Arabia Inform as the leading backbone for Arabic Artificial Intelligence training.</p>
+                            </div>
+                            <div class="panel-visual">
+                                <div class="visual-placeholder">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2026</div>
-                        <div class="timeline-text">Arabia Inform Today — World's largest Arabic archive</div>
+                    <!-- 2024 Content -->
+                    <div class="timeline-panel" id="panel-2024">
+                        <div class="panel-inner">
+                            <div class="panel-text">
+                                <h3>2024: 3+ Billion Articles</h3>
+                                <p>A historic scale milestone is achieved as the database crosses 3 billion indexed, cleaned, and searchable Arabic sources.</p>
+                            </div>
+                            <div class="panel-visual">
+                                <div class="visual-placeholder">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <!-- 2026 Content -->
+                    <div class="timeline-panel" id="panel-2026">
+                        <div class="panel-inner">
+                            <div class="panel-text">
+                                <h3>2026: Arabia Inform Today</h3>
+                                <p>Undisputedly the largest Arabic archive in existence. We continuously curate the present to preserve the future of the Arab world.</p>
+                            </div>
+                            <div class="panel-visual">
+                                <div class="visual-placeholder">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path><path d="M5 3v4"></path><path d="M19 17v4"></path><path d="M3 5h4"></path><path d="M17 19h4"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>

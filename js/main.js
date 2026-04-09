@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initKnowledgeFlow();
   initBlogFilters();
   initNavActive();
+  initInteractiveTimeline();
 });
 
 /* --- Sticky Navbar --- */
@@ -325,6 +326,32 @@ function initBlogFilters() {
           card.style.display = 'none';
         }
       });
+    });
+  });
+}
+
+/* --- Interactive Timeline --- */
+function initInteractiveTimeline() {
+  const nodes = document.querySelectorAll('.timeline-node');
+  const panels = document.querySelectorAll('.timeline-panel');
+  if (!nodes.length || !panels.length) return;
+
+  nodes.forEach(node => {
+    node.addEventListener('click', () => {
+      nodes.forEach(n => n.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+
+      node.classList.add('active');
+
+      const year = node.dataset.year;
+      const targetPanel = document.getElementById(`panel-${year}`);
+      if (targetPanel) {
+        targetPanel.classList.add('active');
+        // Small delay then trigger scroll into view
+        setTimeout(() => {
+          node.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }, 100);
+      }
     });
   });
 }

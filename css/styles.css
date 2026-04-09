@@ -1798,64 +1798,188 @@ p {
   margin-top: 20px;
 }
 
-/* --- About Page: Timeline --- */
-.timeline {
+/* --- About Page: Interactive Timeline --- */
+.timeline-interactive-container {
   position: relative;
-  padding: 40px 0;
+  width: 100%;
+  margin-top: var(--space-4);
+}
+
+.timeline-nav-wrapper {
+  position: relative;
+  width: 100%;
   overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: var(--space-6);
+  padding: var(--space-2) 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--teal) transparent;
 }
 
-.timeline-track {
+.timeline-nav-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+.timeline-nav-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+.timeline-nav-wrapper::-webkit-scrollbar-thumb {
+  background-color: var(--teal);
+  border-radius: 10px;
+}
+
+.timeline-nav {
   display: flex;
-  gap: 0;
-  min-width: max-content;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 800px;
   position: relative;
-  padding: 60px 20px 20px;
+  z-index: 2;
 }
 
-.timeline-track::before {
-  content: '';
+.timeline-connecting-line {
   position: absolute;
-  top: 36px;
+  top: 50%;
   left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--gold), var(--blue), var(--gold));
+  width: 100%;
+  height: 2px;
+  background: var(--border-color);
+  z-index: 1;
+  transform: translateY(-50%);
 }
 
-.timeline-item {
-  flex: 0 0 180px;
-  text-align: center;
+.timeline-node {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-2);
+  outline: none;
+  transition: var(--transition);
   position: relative;
-  padding-top: 30px;
+  font-family: inherit;
 }
 
-.timeline-item::before {
+.node-year {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--medium-gray);
+  transition: var(--transition);
+}
+
+.node-point {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--border-color);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-node:hover .node-year,
+.timeline-node.active .node-year {
+  color: var(--navy);
+  transform: scale(1.1);
+}
+
+.timeline-node:hover .node-point,
+.timeline-node.active .node-point {
+  border-color: var(--data-crimson);
+  background: var(--data-crimson);
+  box-shadow: 0 0 0 4px rgba(229, 27, 36, 0.15);
+  transform: scale(1.2);
+}
+
+.timeline-content-display {
+  position: relative;
+  min-height: 400px;
+}
+
+.timeline-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-panel.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.panel-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  align-items: center;
+}
+
+.panel-text h3 {
+  font-size: 32px;
+  color: var(--navy);
+  margin-bottom: var(--space-3);
+  position: relative;
+  display: inline-block;
+}
+
+.panel-text h3::after {
   content: '';
   position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--gold);
-  border: 3px solid var(--white);
-  box-shadow: var(--shadow-sm);
-  z-index: 1;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--data-crimson);
+  border-radius: 2px;
 }
 
-.timeline-year {
+.rtl .panel-text h3::after {
+  left: auto;
+  right: 0;
+}
+
+.panel-text p {
   font-size: 18px;
-  font-weight: 800;
-  color: var(--navy);
-  margin-bottom: 6px;
+  line-height: 1.8;
+  color: var(--medium-gray);
 }
 
-.timeline-text {
-  font-size: 13px;
-  color: var(--medium-gray);
-  padding: 0 10px;
+.visual-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, var(--light-gray), #e8ecef);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visual-placeholder svg {
+  width: 80px;
+  height: 80px;
+  stroke: var(--primary-teal);
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .panel-inner {
+    grid-template-columns: 1fr;
+    padding: var(--space-4);
+  }
 }
 
 /* --- Archive Cards --- */
