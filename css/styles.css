@@ -1733,70 +1733,114 @@ p {
 /* --- Footer --- */
 .footer {
   background: var(--navy-dark);
-  color: rgba(255, 255, 255, 0.7);
-  padding: 80px 0 0;
+  color: rgba(255, 255, 255, 0.65);
+  padding: 100px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(229, 27, 36, 0.3), transparent);
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 48px;
-  padding-bottom: 48px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 64px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-brand {
+  max-width: 320px;
 }
 
 .footer-brand p {
   font-size: 15px;
   line-height: 1.8;
-  margin-top: 16px;
-}
-
-.footer-title {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--white);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
-}
-
-.footer-links li {
-  margin-bottom: 10px;
-}
-
-.footer-links a {
-  font-size: 14px;
+  margin-top: 24px;
   color: rgba(255, 255, 255, 0.6);
 }
 
+.footer-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 32px;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background: var(--data-crimson);
+  opacity: 0.6;
+}
+
+.rtl .footer-title::after {
+  left: auto;
+  right: 0;
+}
+
+.footer-links li {
+  margin-bottom: 14px;
+}
+
+.footer-links a {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.25s ease;
+  display: inline-block;
+}
+
 .footer-links a:hover {
-  color: var(--gold);
+  color: var(--white);
+  transform: translateX(5px);
+}
+
+.rtl .footer-links a:hover {
+  transform: translateX(-5px);
 }
 
 .footer-bottom {
-  padding: 24px 0;
+  padding: 32px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 16px;
-  font-size: 13px;
+  gap: 24px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .footer-stats {
   display: flex;
-  gap: 24px;
+  gap: 32px;
   flex-wrap: wrap;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.4);
 }
 
 .footer-brand-line {
   color: var(--white);
   font-weight: 600;
-  font-size: 14px;
-  margin-top: 20px;
+  font-size: 15px;
+  margin-top: 24px;
+  opacity: 0.9;
 }
+
 
 /* --- About Page: Interactive Timeline --- */
 .timeline-interactive-container {
@@ -3407,10 +3451,41 @@ p {
   .quote-block { padding: 28px 24px; }
   .quote-text { font-size: 17px; }
 
-  /* Footer */
-  .footer-grid { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 32px; }
-  .footer-grid > div { display: flex; flex-direction: column; align-items: center; text-align: center; }
-  .footer-bottom { flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 16px; }
+  /* Footer Enhanced Mobile */
+  .footer { padding: 64px 0 0; }
+  .footer-grid { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    gap: 48px; 
+    padding-bottom: 48px;
+  }
+  .footer-brand {
+    max-width: 100%;
+    margin-bottom: 16px;
+  }
+  .footer-brand .nav-logo { justify-content: center; padding: 0; }
+  .footer-grid > div:not(.footer-brand) { 
+    width: 100%;
+    position: relative;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .footer-title { margin-bottom: 24px; }
+  .footer-title::after { 
+    left: 50%; 
+    transform: translateX(-50%); 
+  }
+  .footer-links a:hover { transform: translateY(-3px); }
+  .footer-bottom { 
+    flex-direction: column; 
+    gap: 24px; 
+    padding: 40px 0;
+    text-align: center;
+  }
+  .footer-stats { justify-content: center; gap: 16px; }
+
 
   /* Section padding reduction */
   .section { padding: 72px 0; }
