@@ -3451,40 +3451,94 @@ p {
   .quote-block { padding: 28px 24px; }
   .quote-text { font-size: 17px; }
 
-  /* Footer Enhanced Mobile */
-  .footer { padding: 64px 0 0; }
+  /* --- Premium Footer Mobile Enhancement --- */
+  .footer { 
+    padding: 64px 0 0 !important; 
+  }
+  
   .footer-grid { 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
-    gap: 48px; 
-    padding-bottom: 48px;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 40px 24px !important;
+    text-align: left !important;
+    padding-bottom: 48px !important;
   }
+
   .footer-brand {
-    max-width: 100%;
-    margin-bottom: 16px;
+    grid-column: 1 / -1 !important;
+    text-align: center !important;
+    margin-bottom: 24px !important;
+    padding-bottom: 40px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
   }
-  .footer-brand .nav-logo { justify-content: center; padding: 0; }
-  .footer-grid > div:not(.footer-brand) { 
-    width: 100%;
-    position: relative;
-    padding-top: 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+  .footer-brand .nav-logo {
+    justify-content: center !important;
   }
-  .footer-title { margin-bottom: 24px; }
-  .footer-title::after { 
-    left: 50%; 
-    transform: translateX(-50%); 
+
+  .footer-brand p {
+    margin: 16px auto 0 !important;
+    max-width: 280px !important;
   }
-  .footer-links a:hover { transform: translateY(-3px); }
-  .footer-bottom { 
-    flex-direction: column; 
-    gap: 24px; 
-    padding: 40px 0;
-    text-align: center;
+
+  /* Specific column adjustment based on HTML structure */
+  .footer-grid > div:nth-child(2),
+  .footer-grid > div:nth-child(3),
+  .footer-grid > div:nth-child(4) {
+    padding: 0 !important;
+    border: none !important;
   }
-  .footer-stats { justify-content: center; gap: 16px; }
+  
+  /* Link Col 3 (Solutions) — make it full width or shift it */
+  .footer-grid > div:nth-child(4) {
+    grid-column: 1 / -1 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+    padding-top: 40px !important;
+    text-align: center !important;
+  }
+
+  .footer-title {
+    margin-bottom: 20px !important;
+    font-size: 12px !important;
+  }
+
+  .footer-title::after {
+    left: 0 !important;
+    transform: none !important;
+  }
+
+  .footer-grid > div:nth-child(4) .footer-title::after {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  /* RTL Support for Mobile Grid */
+  .rtl .footer-grid {
+    text-align: right !important;
+  }
+  .rtl .footer-title::after {
+    left: auto !important;
+    right: 0 !important;
+  }
+  .rtl .footer-grid > div:nth-child(4) .footer-title::after {
+    left: auto !important;
+    right: 50% !important;
+    transform: translateX(50%) !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 20px !important;
+    padding: 40px 0 !important;
+    text-align: center !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .footer-stats {
+    justify-content: center !important;
+    column-gap: 20px !important;
+  }
+
 
 
   /* Section padding reduction */
