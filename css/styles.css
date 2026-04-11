@@ -460,10 +460,37 @@ p {
   font-weight: 600;
 }
 
-/* CTA Styling for Contact */
-.nav-link[href="contact.html"] {
-  font-weight: 600;
-  color: var(--gold);
+/* CTA Styling for Contact - Premium Teal Button */
+.nav-link[href*="contact"] {
+  background: var(--primary-teal);
+  color: var(--white) !important;
+  height: 38px !important; /* Fixed button height */
+  padding: 0 20px !important;
+  border-radius: 50px;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+  margin-left: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(33, 152, 180, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-link[href*="contact"]:hover {
+  background: #1a7a91;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(33, 152, 180, 0.3);
+}
+
+.nav-link[href*="contact"]::after {
+  display: none !important; /* No underline for button style */
+}
+
+/* RTL adjustment for CTA margin */
+.rtl .nav-link[href*="contact"] {
+  margin-left: 0;
+  margin-right: 12px;
 }
 
 /* Underline effect */
