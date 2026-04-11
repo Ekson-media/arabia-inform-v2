@@ -3481,6 +3481,15 @@ p {
     }
   }
 
+  /* TABLET: 3-Column link layout */
+  @media (min-width: 768px) {
+    .footer-grid {
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 48px 32px !important;
+    }
+  }
+
+
   .footer-brand {
     grid-column: 1 / -1 !important;
     text-align: center !important;
@@ -3506,12 +3515,21 @@ p {
     border: none !important;
   }
   
-  /* Link Col 3 (Solutions) — make it full width or shift it */
+  /* Link Col 3 (Solutions) — Handling per device size */
   .footer-grid > div:nth-child(4) {
     grid-column: 1 / -1 !important;
     border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
     padding-top: 40px !important;
     text-align: center !important;
+  }
+
+  @media (min-width: 768px) {
+    .footer-grid > div:nth-child(4) {
+      grid-column: auto !important;
+      border-top: none !important;
+      padding-top: 0 !important;
+      text-align: left !important;
+    }
   }
 
   /* Handle small screens for Solutions section */
@@ -3544,6 +3562,13 @@ p {
     transform: translateX(-50%) !important;
   }
 
+  @media (min-width: 768px) {
+    .footer-grid > div:nth-child(4) .footer-title::after {
+      left: 0 !important;
+      transform: none !important;
+    }
+  }
+
   /* RTL Support for Mobile Grid */
   .rtl .footer-grid {
     text-align: right !important;
@@ -3560,6 +3585,13 @@ p {
     .rtl .footer-title::after {
       right: 50% !important;
       transform: translateX(50%) !important;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .rtl .footer-grid > div:nth-child(4) .footer-title::after {
+      right: 0 !important;
+      transform: none !important;
     }
   }
 
