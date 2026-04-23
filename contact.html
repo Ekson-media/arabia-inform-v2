@@ -141,14 +141,18 @@
                                         value="partnership"> Partnership</label>
                             </div>
                         </div>
-                        <!-- Local Math CAPTCHA (No API needed) -->
-                        <div class="form-group captcha-container" style="margin-top: 24px; padding: 16px; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
-                            <label class="form-label" style="display: block; margin-bottom: 8px;">Security Verification *</label>
+                        <!-- Local Checkbox CAPTCHA (No API needed) -->
+                        <div class="form-group captcha-container" 
+                             style="margin-top: 24px; padding: 12px 16px; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: space-between; cursor: pointer;"
+                             onclick="toggleCheckboxCaptcha(this)">
                             <div style="display: flex; align-items: center; gap: 12px;">
-                                <span id="captcha-question" style="font-weight: bold; color: var(--gold); font-size: 1.1rem;">- + - = ?</span>
-                                <input class="form-input" type="number" id="captcha-answer" style="width: 80px; margin: 0;" placeholder="?">
+                                <div id="captcha-checkbox" style="width: 24px; height: 24px; border: 2px solid rgba(255,255,255,0.3); border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: all 0.2s;">
+                                    <span id="captcha-check" style="display: none; color: #27ae60; font-size: 1.2rem;">✓</span>
+                                </div>
+                                <span style="font-size: 0.95rem; color: rgba(255,255,255,0.9);">I am not a robot</span>
                             </div>
-                            <small style="opacity: 0.6; display: block; margin-top: 8px;">Please solve this simple math problem to submit.</small>
+                            <img src="images/favicon.png" alt="" style="height: 24px; opacity: 0.5; filter: grayscale(1);">
+                            <input type="hidden" id="captcha-verified" value="false">
                         </div>
 
                         <button type="submit" class="btn btn-teal btn-lg" id="submitBtn" style="width:100%; margin-top:16px;">Send My Request</button>

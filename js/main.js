@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initBlogFilters();
   initNavActive();
   initInteractiveTimeline();
-  initCaptcha();
 });
 
 /* --- Sticky Navbar --- */
@@ -238,9 +237,12 @@ function initFormValidation() {
       email.style.borderColor = '#e74c3c';
     }
 
-    // Check CAPTCHA
-    if (valid && !validateCaptcha()) {
+    // Check CAPTCHA (Checkbox version)
+    const captchaVerified = document.getElementById('captcha-verified');
+    if (valid && captchaVerified && captchaVerified.value !== 'true') {
       valid = false;
+      const container = document.querySelector('.captcha-container');
+      if (container) container.style.borderColor = '#e74c3c';
     }
 
     if (valid) {
@@ -360,36 +362,25 @@ function initInteractiveTimeline() {
   });
 }
 
-/* --- Math CAPTCHA System (No API) --- */
-let captchaSolution = 0;
+/* --- Custom Checkbox CAPTCHA System (No API) --- */
+function toggleCheckboxCaptcha(container) {
+  const checkbox = container.querySelector('#captcha-checkbox');
+  const check = container.querySelector('#captcha-check');
+  const verifiedInput = container.querySelector('#captcha-verified');
 
-function initCaptcha() {
-  const questionEl = document.getElementById('captcha-question');
-  if (!questionEl) return;
-
-  const num1 = Math.floor(Math.random() * 10) + 1;
-  const num2 = Math.floor(Math.random() * 10) + 1;
-  captchaSolution = num1 + num2;
-
-  questionEl.textContent = `${num1} + ${num2} = ?`;
-}
-
-function validateCaptcha() {
-  const answerInput = document.getElementById('captcha-answer');
-  if (!answerInput) return true; // Fail-safe: if no captcha present, treat as valid
-
-  const userAnswer = parseInt(answerInput.value);
-  const container = answerInput.closest('.captcha-container');
-
-  if (userAnswer === captchaSolution) {
-    if (container) container.style.borderColor = 'rgba(39, 174, 96, 0.5)';
-    return true;
+  if (verifiedInput.value === 'false') {
+    // Verified
+    verifiedInput.value = 'true';
+    checkbox.style.background = 'rgba(39, 174, 96, 0.1)';
+    checkbox.style.borderColor = '#27ae60';
+    check.style.display = 'block';
+    container.style.borderColor = 'rgba(39, 174, 96, 0.3)';
   } else {
-    if (container) container.style.borderColor = '#e74c3c';
-    if (answerInput) {
-      answerInput.value = '';
-      answerInput.focus();
-    }
-    return false;
+    // Unverified
+    verifiedInput.value = 'false';
+    checkbox.style.background = 'transparent';
+    checkbox.style.borderColor = 'rgba(255,255,255,0.3)';
+    check.style.display = 'none';
+    container.style.borderColor = 'rgba(255,255,255,0.1)';
   }
 }
