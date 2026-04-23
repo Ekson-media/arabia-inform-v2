@@ -17,7 +17,7 @@
 
 ### 📦 Production-Ready Download
 - **v2.1 Release ZIP:** [Download ZIP](https://github.com/Ekson-media/arabia-inform-v2/archive/refs/tags/v2.1.zip)
-- **Local Location:** `D:\Almotahida\arabia-inform-v2-main\arabia-inform-v2.0-Production-Ready.zip`
+- **Local Location:** `D:\Almotahida\arabia-inform-v2.1-Production-Ready.zip`
 
 ---
 
