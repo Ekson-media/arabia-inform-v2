@@ -2,6 +2,14 @@
    ARABIA INFORM — Main JavaScript
    ============================================ */
 
+/* --- Cloudflare Turnstile Callback --- */
+window.onTurnstileSuccess = function () {
+  const submitBtn = document.getElementById('submitBtn');
+  if (submitBtn) {
+    submitBtn.disabled = false;
+  }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initMobileMenu();
@@ -241,13 +249,12 @@ function initFormValidation() {
       const btn = form.querySelector('button[type="submit"]');
       if (btn) {
         const original = btn.textContent;
-        btn.textContent = btn.closest('[dir="rtl"]') ? 'تم الإرسال ✓' : 'Sent Successfully ✓';
-        btn.style.background = '#27ae60';
-        setTimeout(() => {
-          btn.textContent = original;
-          btn.style.background = '';
-          form.reset();
-        }, 3000);
+        const isRtl = btn.closest('[dir="rtl"]');
+        btn.textContent = isRtl ? 'جاري الإرسال...' : 'Sending...';
+        btn.style.opacity = '0.7';
+
+        // Actually submit the form to FormSubmit.co
+        form.submit();
       }
     }
   });

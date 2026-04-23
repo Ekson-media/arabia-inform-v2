@@ -25,6 +25,9 @@
 
   <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Cloudflare Turnstile -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 
 <body>
@@ -141,8 +144,11 @@
                                         value="partnership"> Partnership</label>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-gold btn-lg"
-                            style="width:100%;justify-content:center;margin-top:8px;">Send My Request →</button>
+                        <div class="form-group" style="margin-top: 24px;">
+                            <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-callback="onTurnstileSuccess"></div>
+                        </div>
+
+                        <button type="submit" class="btn btn-teal btn-lg" id="submitBtn" style="width:100%; margin-top:16px;" disabled>Send My Request</button>
                     </form>
                 </div>
 
