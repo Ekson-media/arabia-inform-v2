@@ -25,9 +25,6 @@
 
   <!-- Favicon -->
     <link rel="icon" type="image/png" href="../images/favicon.png">
-    
-    <!-- Cloudflare Turnstile -->
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 
 <body>
@@ -77,7 +74,7 @@
                 <div class="reveal">
                     <h3 style="margin-bottom:24px;">أرسل طلبك إلينا</h3>
                     <form id="contactForm" action="https://formsubmit.co/jan.diggs@arabiainform.com" method="POST">
-                        <input type="hidden" name="_captcha" value="true">
+                        <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_next" value="http://arabiainform.com/ar/contact.html">
                         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
                             <div class="form-group"><label class="form-label" for="fullName">الاسم بالكامل
@@ -132,11 +129,17 @@
                                         value="partnership"> شراكة</label>
                             </div>
                         </div>
-                        <div class="form-group" style="margin-top: 24px;">
-                            <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-callback="onTurnstileSuccess"></div>
+                        <!-- Local Math CAPTCHA (No API needed) -->
+                        <div class="form-group captcha-container" style="margin-top: 24px; padding: 16px; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                            <label class="form-label" style="display: block; margin-bottom: 8px;">التحقق الأمني *</label>
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <span id="captcha-question" style="font-weight: bold; color: var(--gold); font-size: 1.1rem;">- + - = ?</span>
+                                <input class="form-input" type="number" id="captcha-answer" style="width: 80px; margin: 0;" placeholder="?">
+                            </div>
+                            <small style="opacity: 0.6; display: block; margin-top: 8px;">يرجى حل هذه المسألة الرياضية البسيطة للمتابعة.</small>
                         </div>
                         <button type="submit" id="submitBtn" class="btn btn-teal btn-lg"
-                            style="width:100%;justify-content:center;margin-top:8px;" disabled>إرسال الطلب ←</button>
+                            style="width:100%;justify-content:center;margin-top:8px;">إرسال الطلب ←</button>
                     </form>
                 </div>
                 <div class="demo-panel reveal">

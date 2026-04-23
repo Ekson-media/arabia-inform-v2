@@ -2,14 +2,6 @@
    ARABIA INFORM — Main JavaScript
    ============================================ */
 
-/* --- Cloudflare Turnstile Callback --- */
-window.onTurnstileSuccess = function () {
-  const submitBtn = document.getElementById('submitBtn');
-  if (submitBtn) {
-    submitBtn.disabled = false;
-  }
-};
-
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initMobileMenu();
@@ -22,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBlogFilters();
   initNavActive();
   initInteractiveTimeline();
+  initCaptcha();
 });
 
 /* --- Sticky Navbar --- */
@@ -245,10 +238,14 @@ function initFormValidation() {
       email.style.borderColor = '#e74c3c';
     }
 
+    // Check CAPTCHA
+    if (valid && !validateCaptcha()) {
+      valid = false;
+    }
+
     if (valid) {
       const btn = form.querySelector('button[type="submit"]');
       if (btn) {
-        const original = btn.textContent;
         const isRtl = btn.closest('[dir="rtl"]');
         btn.textContent = isRtl ? 'جاري الإرسال...' : 'Sending...';
         btn.style.opacity = '0.7';
@@ -361,4 +358,38 @@ function initInteractiveTimeline() {
       }
     });
   });
+}
+
+/* --- Math CAPTCHA System (No API) --- */
+let captchaSolution = 0;
+
+function initCaptcha() {
+  const questionEl = document.getElementById('captcha-question');
+  if (!questionEl) return;
+
+  const num1 = Math.floor(Math.random() * 10) + 1;
+  const num2 = Math.floor(Math.random() * 10) + 1;
+  captchaSolution = num1 + num2;
+
+  questionEl.textContent = `${num1} + ${num2} = ?`;
+}
+
+function validateCaptcha() {
+  const answerInput = document.getElementById('captcha-answer');
+  if (!answerInput) return true; // Fail-safe: if no captcha present, treat as valid
+
+  const userAnswer = parseInt(answerInput.value);
+  const container = answerInput.closest('.captcha-container');
+
+  if (userAnswer === captchaSolution) {
+    if (container) container.style.borderColor = 'rgba(39, 174, 96, 0.5)';
+    return true;
+  } else {
+    if (container) container.style.borderColor = '#e74c3c';
+    if (answerInput) {
+      answerInput.value = '';
+      answerInput.focus();
+    }
+    return false;
+  }
 }
