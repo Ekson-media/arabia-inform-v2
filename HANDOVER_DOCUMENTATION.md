@@ -1,7 +1,7 @@
 # Project Handover Documentation: Arabia Inform v2
 
 ## 📅 Handover Date: April 12, 2026
-## 🏷️ Version: 2.3 (Stable - Local Math CAPTCHA)
+## 🏷️ Version: 2.4 (Stable - Checkbox CAPTCHA)
 
 ---
 
@@ -16,8 +16,8 @@
 - **Branch:** `main`
 
 ### 📦 Production-Ready Download
-- **v2.3 Release ZIP:** [Download ZIP](https://github.com/Ekson-media/arabia-inform-v2/archive/refs/tags/v2.3.zip)
-- **Local Location:** `D:\Almotahida\arabia-inform-v2.3-Production-Ready.zip`
+- **v2.4 Release ZIP:** [Download ZIP](https://github.com/Ekson-media/arabia-inform-v2/archive/refs/tags/v2.4.zip)
+- **Local Location:** `D:\Almotahida\arabia-inform-v2.4-Production-Ready.zip`
 
 ---
 
@@ -47,11 +47,11 @@
 4. **Cache Management:**
    - Implemented `?v=8.0` fingerprinting on global CSS files to ensure immediate updates across all user browsers.
 5. **Arabic Restoration & CAPTCHA (v2.1):**
-6. **Custom Local Math CAPTCHA (v2.3):**
-   - Implemented a purely JavaScript-based Math CAPTCHA that requires **no external APIs** (Cloudflare Turnstile removed per request).
-   - Generates random addition problems on each page load.
-   - Blocks form submission if the user's answer is incorrect.
-   - Disabled FormSubmit.co's built-in redirect CAPTCHA to ensure a seamless, local experience.
+6. **Custom Local Checkbox CAPTCHA (v2.4):**
+   - Replaced Math CAPTCHA with a premium "I am not a robot" checkbox.
+   - Purely JavaScript/CSS based with **no external APIs**.
+   - Features a smooth green checkmark animation upon clicking.
+   - Prevents form submission unless the checkbox is clicked.
    - Restored corrupted Arabic content and encoding for Archive, Contact, and Impact pages.
    - Standardized "+" sign positioning across all Arabic metrics (moved to right side/start of numbers).
    - Enabled CAPTCHA security on both English and Arabic contact/demo forms via FormSubmit.co.
