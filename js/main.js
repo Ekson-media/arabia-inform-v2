@@ -364,23 +364,30 @@ function initInteractiveTimeline() {
 
 /* --- Custom Checkbox CAPTCHA System (No API) --- */
 function toggleCheckboxCaptcha(container) {
-  const checkbox = container.querySelector('#captcha-checkbox');
-  const check = container.querySelector('#captcha-check');
+  const checkboxCircle = container.querySelector('#captcha-checkbox-circle');
+  const checkMark = container.querySelector('#captcha-check-mark');
+  const statusText = container.querySelector('#captcha-status-text');
   const verifiedInput = container.querySelector('#captcha-verified');
+
+  const isRtl = container.closest('[dir="rtl"]');
 
   if (verifiedInput.value === 'false') {
     // Verified
     verifiedInput.value = 'true';
-    checkbox.style.background = 'rgba(39, 174, 96, 0.1)';
-    checkbox.style.borderColor = '#27ae60';
-    check.style.display = 'block';
-    container.style.borderColor = 'rgba(39, 174, 96, 0.3)';
+    checkboxCircle.style.background = '#27ae60';
+    checkboxCircle.style.borderColor = '#27ae60';
+    checkMark.style.display = 'block';
+    statusText.textContent = isRtl ? 'تم التحقق بنجاح' : 'Success!';
+    statusText.style.color = '#27ae60';
+    container.style.borderColor = '#27ae60';
   } else {
-    // Unverified
+    // Unverified (Optional flip back toggle)
     verifiedInput.value = 'false';
-    checkbox.style.background = 'transparent';
-    checkbox.style.borderColor = 'rgba(255,255,255,0.3)';
-    check.style.display = 'none';
-    container.style.borderColor = 'rgba(255,255,255,0.1)';
+    checkboxCircle.style.background = '#f9f9f9';
+    checkboxCircle.style.borderColor = '#e0e0e0';
+    checkMark.style.display = 'none';
+    statusText.textContent = isRtl ? 'التحقق من الهوية' : 'Verify you are human';
+    statusText.style.color = '#333333';
+    container.style.borderColor = '#d1d1d1';
   }
 }
