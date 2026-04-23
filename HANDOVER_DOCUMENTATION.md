@@ -1,7 +1,7 @@
 # Project Handover Documentation: Arabia Inform v2
 
 ## 📅 Handover Date: April 12, 2026
-## 🏷️ Version: 2.0 (Stable)
+## 🏷️ Version: 2.1 (Stable - Arabic Fixes)
 
 ---
 
@@ -16,7 +16,7 @@
 - **Branch:** `main`
 
 ### 📦 Production-Ready Download
-- **v2.0 Release ZIP:** [Download ZIP](https://github.com/Ekson-media/arabia-inform-v2/archive/refs/tags/v2.0.zip)
+- **v2.1 Release ZIP:** [Download ZIP](https://github.com/Ekson-media/arabia-inform-v2/archive/refs/tags/v2.1.zip)
 - **Local Location:** `D:\Almotahida\arabia-inform-v2-main\arabia-inform-v2.0-Production-Ready.zip`
 
 ---
@@ -46,6 +46,10 @@
    - Transformed the "Contact / Demo" link into a premium Teal pill-button with interactive hover effects.
 4. **Cache Management:**
    - Implemented `?v=8.0` fingerprinting on global CSS files to ensure immediate updates across all user browsers.
+5. **Arabic Restoration & CAPTCHA (v2.1):**
+   - Restored corrupted Arabic content and encoding for Archive, Contact, and Impact pages.
+   - Standardized "+" sign positioning across all Arabic metrics (moved to right side/start of numbers).
+   - Enabled CAPTCHA security on both English and Arabic contact/demo forms via FormSubmit.co.
 
 ---
 
