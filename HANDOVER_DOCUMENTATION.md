@@ -74,10 +74,37 @@
 
 ## 🛠️ Deployment Instructions (for SE Team)
 
-1. **Extraction:** Download/Extract the **v2.0 Production ZIP**.
+1. **Extraction:** Download/Extract the **v2.6 Production ZIP**.
 2. **Server Root:** Upload all files (keeping structure intact) to the root directory of the production web server.
 3. **No Build Step:** No `npm install` or compilation is required; the site is ready-to-serve.
 4. **Verification:** Check the `Intelligence Platform` and `API Access` sections on the Products page to ensure the images render correctly.
+
+
+---
+
+## 📧 Contact Form & Email Configuration (Important for Migration)
+
+The contact forms on both the English (`/contact.html`) and Arabic (`/ar/contact.html`) pages are currently powered by **FormSubmit.co**, which handles sending the emails securely without a backend.
+
+**Current Dual-Recipient Setup:**
+All submissions are sent to two addresses simultaneously:
+1.  **Primary:** `jan.diggs@arabiainform.com`
+2.  **CC (Carbon Copy):** `info@arabiainform.com`
+
+### Steps Required When Managing or Changing Servers:
+
+1.  **Server Migration (Domain Change):**
+    If the website is moved to a new server/domain name (e.g., from `ekson-media.github.io` to `arabiainform.com`), the forms **must be activated on the new domain**. 
+    *   **Action Required:** After deploying to the new server, submit a test request through the form. FormSubmit will automatically send an activation email to `jan.diggs@arabiainform.com`. The owner of that email *must* click "Confirm" in that email for the forms to work on the new server.
+
+2.  **Redirect URLs (`_next` field):**
+    The forms are currently hardcoded to redirect the user back to the correct thank-you/contact page upon submission.
+    *   **Action Required:** If your production domain is *not* going to be `http://arabiainform.com`, you must update the hidden field `<input type="hidden" name="_next" value="...">` in both `contact.html` and `ar/contact.html` to match your actual live domain.
+
+3.  **Changing the Receiving Email:**
+    If you ever need to change who receives these requests:
+    *   Change the `action` attribute on the `<form>` tag: `action="https://formsubmit.co/NEW_EMAIL@example.com"`.
+    *   Change the CC field (optional): `<input type="hidden" name="_cc" value="ANOTHER_EMAIL@example.com">`.
 
 ---
 *© 2026 Arabia Inform. Document generated for task completion and handover.*
