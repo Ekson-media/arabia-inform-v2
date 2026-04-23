@@ -1,7 +1,7 @@
 # Project Handover Documentation: Arabia Inform v2
 
 ## 📅 Handover Date: April 12, 2026
-## 🏷️ Version: 2.1 (Stable - Arabic Fixes)
+## 🏷️ Version: 2.2 (Stable - Cloudflare Turnstile)
 
 ---
 
@@ -16,8 +16,8 @@
 - **Branch:** `main`
 
 ### 📦 Production-Ready Download
-- **v2.1 Release ZIP:** [Download ZIP](https://github.com/Ekson-media/arabia-inform-v2/archive/refs/tags/v2.1.zip)
-- **Local Location:** `D:\Almotahida\arabia-inform-v2.1-Production-Ready.zip`
+- **v2.2 Release ZIP:** [Download ZIP](https://github.com/Ekson-media/arabia-inform-v2/archive/refs/tags/v2.2.zip)
+- **Local Location:** `D:\Almotahida\arabia-inform-v2.2-Production-Ready.zip`
 
 ---
 
@@ -47,6 +47,10 @@
 4. **Cache Management:**
    - Implemented `?v=8.0` fingerprinting on global CSS files to ensure immediate updates across all user browsers.
 5. **Arabic Restoration & CAPTCHA (v2.1):**
+6. **Cloudflare Turnstile (v2.2):**
+   - Replaced hidden CAPTCHA with visible Cloudflare Turnstile widget.
+   - Form submission is now disabled until the user passes verification.
+   - Fixed JS logic to ensure successful data transmission to FormSubmit.co.
    - Restored corrupted Arabic content and encoding for Archive, Contact, and Impact pages.
    - Standardized "+" sign positioning across all Arabic metrics (moved to right side/start of numbers).
    - Enabled CAPTCHA security on both English and Arabic contact/demo forms via FormSubmit.co.
